@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Just Dance Randomizer</title>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <h1>Just Dance Randomizer</h1>
+
+        <form action="/" method="post">
+            {% csrf_token %}
+            {% if isUnlimited %}
+                <input type="checkbox" id="isUnlimited" name="isUnlimited" checked>
+            {% else %}
+                <input type="checkbox" id="isUnlimited" name="isUnlimited">
+            {% endif %}
+            <label for="isUnlimited">Allow songs from Just Dance Unlimited</label>
+            <input type="submit" value="Click here to pick a random song">
+        </form> 
+
+        {% if response %}
+            {% for item in response %}
+                <p>{{ item }}</p>
+            {% endfor %}
+        {% endif %}
+
+    </body>
+</html>
