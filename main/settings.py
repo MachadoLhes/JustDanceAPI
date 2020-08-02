@@ -27,7 +27,7 @@ SECRET_KEY = 'einm3-1d^@p%0lf(q_re&c!tdma7g&34qw_1nd@6ge2c+jh-g1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

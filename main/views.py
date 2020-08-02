@@ -19,7 +19,10 @@ def main(request):
         except:
             isUnlimited = False
 
-        response = get_random_song(isUnlimited)
+        song = get_random_song(isUnlimited)
+
+        response = mount_response_json(song)
+
         context = {
             'post': True,
             'isUnlimited': isUnlimited,

@@ -14,27 +14,63 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
     </head>
 
+    <style>
+        .header{
+            padding: 40px;
+            text-align: center;
+            background: #1abc9c;
+            color: white;
+            font-size: 30px;
+        }
+
+        .song-picker {
+            margin: auto;
+            width: 50%;
+            border: 3px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .song-wall {
+            margin: auto;
+            width: 50%;
+            border: 3px;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+
     <body>
         <div class="header">
             <h1>Just Dance Randomizer</h1>
         </div>
 
-        <form action="/" method="post">
-            {% csrf_token %}
-            {% if isUnlimited %}
-                <input type="checkbox" id="isUnlimited" name="isUnlimited" checked>
-            {% else %}
-                <input type="checkbox" id="isUnlimited" name="isUnlimited">
-            {% endif %}
-            <label for="isUnlimited">Allow songs from Just Dance Unlimited</label>
-            <input class="uk-button uk-button-default" type="submit" value="Click here to pick a random song">
-        </form> 
-
-        {% if response %}
-            {% for item in response %}
-                <p>{{ item }}</p>
-            {% endfor %}
-        {% endif %}
-
+        <div class="content">
+            <div class="song-wall">
+                {% if response %}
+                    <div class="uk-card uk-card-default uk-card-body">
+                        <h3 class="uk-card-title">{{ response.name}}</h3>
+                        <h4>{{ response.game }}</h4>
+                        <p>{{ response.artist }}</p>
+                        <p>{{ response.mode }}</p>
+                    </div>
+                {% endif %}
+            </div>
+    
+            <div class="song-picker">
+                <form action="/" method="post">
+                    {% csrf_token %}
+                    <div class="form-item">
+                        {% if isUnlimited %}
+                            <input type="checkbox" class="uk-checkbox" id="isUnlimited" name="isUnlimited" checked>
+                        {% else %}
+                            <input type="checkbox" class="uk-checkbox" id="isUnlimited" name="isUnlimited">
+                        {% endif %}
+                        <label for="isUnlimited">Allow Just Dance Unlimited</label>
+                    </div>
+                    <button class="uk-button uk-button-default" type="submit">Shuffle! <i class="fas fa-random"></i></button>
+                </form> 
+            </div>
+        </div>
     </body>
 </html>

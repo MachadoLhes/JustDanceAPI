@@ -2,7 +2,7 @@ from django.conf import settings
 import csv, random
 
 #Threshold fo wheater a current game song is chosen instead of a unlimited song
-JD_UNLIMITED_THRESHOLD = 40
+JD_UNLIMITED_THRESHOLD = 50
 
 def get_random_csv_line(filepath):
     with open(filepath) as f:
