@@ -53,6 +53,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'main.urls'
+STATIC_URL = '/static/'
 
 TEMPLATES = [
     {
