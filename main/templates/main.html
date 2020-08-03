@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 
+{% load static %}
+
 <html>
     <head>
         <meta charset="UTF-8">
         <title>Just Dance Shuffle</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+
         <!-- UI KIT -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.min.css" />
         
@@ -25,6 +28,23 @@
         
         .header > h1 {
             color: white
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: lightgray;
+            text-align: center;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .contact-info > p {
+            margin: auto;
         }
 
         .song-picker {
@@ -84,5 +104,17 @@
                 </form> 
             </div>
         </div>
+
+        <footer class="footer">
+            <div class="contact-info">
+                <p>Author: Rodrigo Machado</p>
+            </div>
+            <!-- <div class="contact-icons">
+                <a href="mailto:souza.machado.rodrigo"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/MachadoLhes/JustDanceAPI">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div> -->
+        </footer> 
     </body>
 </html>
